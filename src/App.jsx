@@ -1,6 +1,10 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import PropertyDetails from "./pages/PropertyDetails";
+import Properties from "./pages/Properties";
+import Location from "./pages/Location";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import AdminLogin from "./pages/AdminLogin";
 import AdminSignup from "./pages/AdminSignup";
 import AdminDashboard from "./admin/AdminDashboard";
@@ -24,6 +28,10 @@ function App() {
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<Home />} />
+          <Route path="/properties" element={<Properties />} />
+          <Route path="/locations/:location" element={<Location />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/property/:id" element={<PropertyDetails />} />
 
           {/* Admin routes (not linked publicly) */}
