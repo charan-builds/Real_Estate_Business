@@ -1,11 +1,30 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getProperties } from "../firebase/firebaseUtils";
+import { isAdminUser } from "../firebase/firebaseConfig";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import PropertyCard from "../components/PropertyCard";
 
 export default function Home() {
+  const navigate = useNavigate();
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    // Check if user is admin
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user && isAdminUser(user.email)) {
+        setIsAdmin(true);
+      } else {
+        setIsAdmin(false);
+      }
+    });
+
+    return unsubscribe;
+  }, []);
 
   useEffect(() => {
     const fetchProperties = async () => {
@@ -55,9 +74,31 @@ export default function Home() {
           >
             Premium Properties in Hyderabad
           </h1>
-          <p style={{ fontSize: 16, color: "#888", margin: 0 }}>
+          <p style={{ fontSize: 16, color: "#888", margin: "0 0 20px 0" }}>
             Discover luxury real estate in the heart of Telangana
           </p>
+
+          {/* Admin Panel Button - Only for Admins */}
+          {isAdmin && (
+            <button
+              onClick={() => navigate("/admin/dashboard")}
+              style={{
+                padding: "12px 24px",
+                backgroundColor: "#2196F3",
+                color: "white",
+                border: "none",
+                borderRadius: 6,
+                fontWeight: "bold",
+                fontSize: 14,
+                cursor: "pointer",
+                transition: "background-color 0.3s",
+              }}
+              onMouseEnter={(e) => (e.target.style.backgroundColor = "#1976D2")}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = "#2196F3")}
+            >
+              ⚙️ Admin Panel
+            </button>
+          )}
         </div>
 
         {/* Properties Grid */}

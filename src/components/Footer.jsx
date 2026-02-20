@@ -88,6 +88,29 @@ export default function Footer() {
       >
         © {currentYear} SUNIL EKAM PROPERTIES. All rights reserved.
       </div>
+
+      {/* Subtle Admin Link - Low visibility for authorized users only */}
+      <div
+        style={{
+          marginTop: 16,
+          textAlign: "center",
+          fontSize: 12,
+        }}
+      >
+        <a
+          href="/admin/login"
+          style={{
+            color: "#cccccc",
+            textDecoration: "none",
+            opacity: 0.5,
+            transition: "opacity 0.3s",
+          }}
+          onMouseEnter={(e) => (e.target.style.opacity = "0.8")}
+          onMouseLeave={(e) => (e.target.style.opacity = "0.5")}
+        >
+          Admin
+        </a>
+      </div>
     </footer>
   );
 }

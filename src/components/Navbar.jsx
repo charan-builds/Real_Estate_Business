@@ -87,9 +87,26 @@ export default function Navbar() {
         </div>
       )}
 
+      {/* Dev-only Admin Link (development convenience) */}
+      {import.meta.env.DEV && !isAdmin && (
+        <div style={{ marginLeft: "auto", display: "flex", gap: 16 }}>
+          <Link
+            to="/admin/login"
+            style={{
+              textDecoration: "none",
+              color: "#999999",
+              fontSize: 12,
+              opacity: 0.6,
+            }}
+          >
+            [Dev: Admin]
+          </Link>
+        </div>
+      )}
+
       {/* Admin Navigation */}
       {isAdmin && (
-        <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: 24, alignItems: "center", marginLeft: "auto" }}>
           <Link
             to="/admin/dashboard"
             style={{
