@@ -4,6 +4,7 @@ export default function About() {
       <h1 style={{ marginBottom: 8 }}>About SUNIL EKAM PROPERTIES</h1>
       <p style={{ color: "#666", marginTop: 0 }}>
         SUNIL EKAM PROPERTIES is a trusted real-estate specialist serving Hyderabad and surrounding business districts.
+        <h4> I am a TG RERA Certified  Real Estate Agent no:  A02200004868 </h4>
         With years of experience in residential and commercial listings, we focus on transparent deals, verified properties, and excellent customer service.
       </p>
 
@@ -15,6 +16,7 @@ export default function About() {
           <li>Dedicated support through the full buying/renting process</li>
         </ul>
       </section>
+      
     </div>
   );
 }

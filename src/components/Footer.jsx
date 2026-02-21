@@ -35,6 +35,9 @@ export default function Footer() {
           <p style={{ margin: 0, lineHeight: 1.6, fontSize: 14 }}>
             Premium real estate services in Hyderabad
           </p>
+          <p style={{ margin: "8px 0 0 0", lineHeight: 1.4, fontSize: 13, color: "#2c3e50" }}>
+            TG RERA Certified Real Estate Agent No : A02200004868
+          </p>
         </div>
 
         {/* Contact */}

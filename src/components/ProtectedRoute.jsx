@@ -4,7 +4,8 @@ import { auth } from "../firebase/firebaseConfig";
 import { useEffect, useState } from "react";
 
 const ADMIN_EMAILS = [
-  "charanderangula007@gmail.com"
+  "charanderangula007@gmail.com",
+  "ekampropertiess@gmail.com"
 ];
 
 export default function ProtectedRoute({ children }) {

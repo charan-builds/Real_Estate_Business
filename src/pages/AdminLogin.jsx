@@ -3,7 +3,8 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 
-const ADMIN_EMAILS = ["charanderangula007@gmail.com"]; // same list
+const ADMIN_EMAILS = ["charanderangula007@gmail.com",
+  "ekampropertiess@gmail.com"]; // same list
 
 export default function AdminLogin() {
   const navigate = useNavigate();
